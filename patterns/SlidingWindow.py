@@ -20,6 +20,28 @@ def fixedSlidingWindow():
     return maxi
 
 
+def striverSlidingWindowFixeed():
+    maxi = float('-inf')
+    k = 4 #window size
+    left, right = 0, k-1
+    nums = list()
+    sumi = 0
+    for i in range(0,k):
+        sumi += nums[i]
+    maxi = sumi
+
+    while right < k-1:
+        sumi -= nums[left]
+        left+=1
+        right+=1
+        sumi += nums[right]
+
+        maxi = max(maxi, sumi)
+
+    return maxi
+
+
+
 
 """
 used for finding the longest or shortest subarray/substring that satisfies the given condition
